@@ -62,3 +62,17 @@ new CircleAnimation(matSimulator, circleX, circleY, radius);
 By default when point goes outside designated area, it snaps to the wall. You can turn it off by deleting/commenting appropriate lines in `update()` implementation. 
 
 ![Path of the point in the top-left corner with and without clamping](img/clamping-preview.png)
+
+## Komentarz [PL]
+
+Zadanie nie precyzowało czy wykorzystane miało zostać programowanie obiektowe czy też funkcyjne, a nie wiem jakie podejście jest stosowane w Państwa firmie podczas tworzenia gier, natomiast uznałem że w przypadku symulatora napisanie go obiektowo jest uzasadnione. 
+
+Dla wychodzących poza obszar punktów wprowadziłem clamping tzn. ograniczenie sprawiające że punkt przylega do krawędzi. Alternatywnie można by wprowadzić przeskakiwanie na przeciwną stronę matrycy, albo natychmiastowy powrót punktu do drugiego końca ścieżki. 
+
+### Czas pracy
+- Implementacja symulatora: 0h 50min
+- Implementacja animacji: 0h 40min
+- Poprawki: 0h 30min
+- Dokumentacja: 1h 0min
+---
+- Razem: 3h 0min
