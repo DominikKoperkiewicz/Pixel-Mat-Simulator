@@ -1,21 +1,17 @@
 const EventEmitter = require('events');
 
+
 class MatSimulator {
 
     constructor() {
         this.frameDuration = 100;
-
         this.rows = 28;
         this.cols = 14;
-        this.matArray = new Array(this.rows);
+        this.matArray = Array.from({ length: this.rows }, () => Array(this.cols).fill(0));
 
-        for (let i = 0; i < this.rows; i++) {
-            this.matArray[i] = new Array(this.cols).fill(0); 
-        }
-
+        // Initializing main loop
         this.eventEmitter = new EventEmitter();
         this.interval = setInterval(() => {
-            this.update();
             this.eventEmitter.emit("frameUpdate");
 
             console.clear();
@@ -23,16 +19,20 @@ class MatSimulator {
         }, this.frameDuration);
     }
 
+    // Print current mat state in console
     printMat() {
+        console.log(this.matArray.map(row => row.join(" ")).join("\n"));
+        /*
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.cols; j++) {
                 process.stdout.write(String(this.matArray[i][j]));
                 process.stdout.write(" ");
             }
             process.stdout.write("\n");
-        }
+        }*/
     }
 
+    // Turn on specific pixel 
     turnOnTile(x, y) {
         if( x < 0 || x >= this.cols || y < 0 || y >= this.rows) {
             return;
@@ -40,15 +40,12 @@ class MatSimulator {
         this.matArray[Math.floor(y)][Math.floor(x)] = 1;
     }
 
+    // Turn off specific pixel 
     turnOffTile(x, y) {
         if( x < 0 || x >= this.cols || y < 0 || y >= this.rows) {
             return;
         }
-        this.matArray[y][x] = 0;
-    }
-    
-    update() {
-
+        this.matArray[Math.floor(y)][Math.floor(x)] = 0;
     }
 }
 
