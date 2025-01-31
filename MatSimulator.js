@@ -3,6 +3,8 @@ const EventEmitter = require('events');
 
 class MatSimulator {
 
+    static FRAME_DURATION = 100;
+    
     constructor() {
         this.frameDuration = 100;
         this.rows = 28;
@@ -16,20 +18,12 @@ class MatSimulator {
 
             console.clear();
             this.printMat();
-        }, this.frameDuration);
+        }, MatSimulator.FRAME_DURATION);
     }
 
     // Print current mat state in console
     printMat() {
         console.log(this.matArray.map(row => row.join(" ")).join("\n"));
-        /*
-        for (let i = 0; i < this.rows; i++) {
-            for (let j = 0; j < this.cols; j++) {
-                process.stdout.write(String(this.matArray[i][j]));
-                process.stdout.write(" ");
-            }
-            process.stdout.write("\n");
-        }*/
     }
 
     // Turn on specific pixel 
