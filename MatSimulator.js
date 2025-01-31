@@ -1,8 +1,9 @@
+const EventEmitter = require('events');
 
 class MatSimulator {
 
     constructor() {
-        this.frameDuration = 500;
+        this.frameDuration = 100;
 
         this.rows = 28;
         this.cols = 14;
@@ -12,8 +13,11 @@ class MatSimulator {
             this.matArray[i] = new Array(this.cols).fill(0); 
         }
 
+        this.eventEmitter = new EventEmitter();
         this.interval = setInterval(() => {
             this.update();
+            this.eventEmitter.emit("frameUpdate");
+
             console.clear();
             this.printMat();
         }, this.frameDuration);
@@ -33,7 +37,7 @@ class MatSimulator {
         if( x < 0 || x >= this.cols || y < 0 || y >= this.rows) {
             return;
         }
-        this.matArray[y][x] = 1;
+        this.matArray[Math.floor(y)][Math.floor(x)] = 1;
     }
 
     turnOffTile(x, y) {
@@ -44,7 +48,7 @@ class MatSimulator {
     }
     
     update() {
-        
+
     }
 }
 

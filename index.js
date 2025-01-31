@@ -1,6 +1,6 @@
 const MatSimulator = require('./MatSimulator')
+const CircleAnimation = require('./CircleAnimation')
 
 const matSimulator = new MatSimulator();
 
-matSimulator.turnOnTile(3, 0);
-matSimulator.turnOnTile(5, 5);
+const circleOne = new CircleAnimation(matSimulator, 7, 12, 6);
