@@ -67,7 +67,12 @@ By default when point goes outside designated area, it snaps to the wall. You ca
 
 Zadanie nie precyzowało czy wykorzystane miało zostać programowanie obiektowe czy też funkcyjne, a nie wiem jakie podejście jest stosowane w Państwa firmie podczas tworzenia gier, natomiast uznałem że w przypadku symulatora napisanie go obiektowo jest uzasadnione. 
 
+Jeśli chodzi o symulator, to tworzymy jego instancję aby go używać, natomiast można by zaimplementować go jako klasa statyczna lub singleton, w celu ułatwienie korzystania z niego. 
+
 Dla wychodzących poza obszar punktów wprowadziłem clamping tzn. ograniczenie sprawiające że punkt przylega do krawędzi. Alternatywnie można by wprowadzić przeskakiwanie na przeciwną stronę matrycy, albo natychmiastowy powrót punktu do drugiego końca ścieżki. 
+
+#### Uwaga
+W niektórych wierszach poleceń może wystąpić problem z czyszczeniem w momencie gdy spróubuje się scrollować w górę. W domyślnym terminalu windows powinno działać poprawnie.
 
 ### Czas pracy
 - Implementacja symulatora: 0h 50min
